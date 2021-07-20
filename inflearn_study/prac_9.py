@@ -1,5 +1,6 @@
 #예외처리 예제
-class SoldOutError(Exception): #재고 소진지
+#Exception 상속받기 잊지말기!
+class SoldOutError(Exception): #재고 소진시
     pass
 
 chicken = 10
