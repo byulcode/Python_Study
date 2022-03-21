@@ -1,4 +1,10 @@
+from collections import Counter
+import re
+
+
 def solution(s):
+    s = Counter(re.findall('\d+', s))
+    print(s)
     answer = []
     s = s[2:-2].split('},{')
     s.sort(key=len)
