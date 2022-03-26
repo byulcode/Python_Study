@@ -1,10 +1,5 @@
-from collections import Counter
-import re
-
 
 def solution(s):
-    s = Counter(re.findall('\d+', s))
-    print(s)
     answer = []
     s = s[2:-2].split('},{')
     s.sort(key=len)
@@ -19,4 +14,4 @@ def solution(s):
     return answer
 
 
-solution("{{4,2,3},{3},{2,3,4,1},{2,3}}")
+print(solution("{{4,2,3},{3},{2,3,4,1},{2,3}}"))
