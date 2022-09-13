@@ -1,16 +1,23 @@
 #백준 3273 두 수의 합
 # 합-숫자가 배열에 있다면 그거 써!
-arr_len = int(input())
-arr = input().split()
-arr = list(map(int, arr))
-compare_num = int(input())
+from sys import stdin
+arr_len = int(stdin.readline())
+arr = list(map(int, stdin.readline().split()))
+x = int(stdin.readline())
 
-compare_arr = [0] * arr_len
+arr.sort()
+left = 0
+right = arr_len - 1
 cnt = 0
 
-for i in range(arr_len):
-    compare_arr[i] = arr[i]
-    if compare_num - arr[i] in compare_arr:
+while left < right:
+    sum = arr[left] + arr[right]
+    if sum > x:
+        right -= 1
+    elif sum < x:
+        left += 1
+    else:
         cnt += 1
-
+        left += 1
+        right -= 1
 print(cnt)
