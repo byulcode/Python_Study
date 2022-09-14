@@ -16,6 +16,17 @@ class LinkedList:
     def __len__(self):
         return self.데이터수
 
+    def __str__(self):
+        
+        현재노드 = self.head
+        현재노드 = 현재노드.next
+        s = ''
+        for i in range(self.데이터수):
+            s += f'{현재노드.data}, '
+            현재노드 = 현재노드.next
+
+        return f'[{s[:-2]}]'
+
     def append(self, data):
         새로운노드 = Node(data)
         self.tail.next = 새로운노드
@@ -32,3 +43,4 @@ l.append(15)
 
 print(l.head.data)
 print(len(l))
+print(l)
