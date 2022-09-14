@@ -33,6 +33,35 @@ class LinkedList:
         self.tail = 새로운노드
         self.데이터수 += 1
 
+    def pop(self):
+        마지막값 = self.tail.data
+        현재노드 = self.head
+
+        for i in range(self.데이터수):
+            if 현재노드.next is self.tail:
+                self.tail = 현재노드
+                break
+            현재노드 = 현재노드.next
+
+        self.데이터수 -= 1
+        return 마지막값
+
+    def pop(self):
+        마지막값 = self.tail.data
+        현재노드 = self.head
+
+        for i in range(self.데이터수):
+            if 현재노드.next is self.tail:
+                self.tail = 현재노드
+                break
+            현재노드 = 현재노드.next
+            
+        self.데이터수 -= 1
+        return 마지막값
+
+    def find(self): 
+        pass
+
 l = LinkedList()
 l.append(10)
 l.append(20)
@@ -43,4 +72,6 @@ l.append(15)
 
 print(l.head.data)
 print(len(l))
+print(l)
+print(l.pop())
 print(l)
