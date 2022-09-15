@@ -46,21 +46,17 @@ class LinkedList:
         self.데이터수 -= 1
         return 마지막값
 
-    def pop(self):
-        마지막값 = self.tail.data
+    def find(self, data):
+        index = -1 #init노드가 맨 앞에 있기 때문
         현재노드 = self.head
 
-        for i in range(self.데이터수):
-            if 현재노드.next is self.tail:
+        for i in range(self.데이터수 + 1): #init 노드 때문에 +1
+            if 현재노드.data == data:
                 self.tail = 현재노드
-                break
+                return index
+            index += 1
             현재노드 = 현재노드.next
-            
-        self.데이터수 -= 1
-        return 마지막값
-
-    def find(self): 
-        pass
+        return -1 #못 찾을 경우
 
 l = LinkedList()
 l.append(10)
@@ -75,3 +71,4 @@ print(len(l))
 print(l)
 print(l.pop())
 print(l)
+print(l.find(20))
