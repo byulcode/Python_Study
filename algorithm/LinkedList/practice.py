@@ -40,6 +40,17 @@ class LinkedList:
         self.tail = 새로운노드
         self.데이터수 += 1
 
+    def insert(self, input_index, input_data):
+        현재노드 = self.head
+
+        for i in range(input_index):
+            현재노드 = 현재노드.next
+        신규노드 = Node(input_data)
+        신규노드.next = 현재노드.next
+        현재노드.next = 신규노드   
+
+        self.데이터수 += 1
+
     def pop(self): 
         마지막값 = self.tail.data
         현재노드 = self.head
@@ -52,7 +63,7 @@ class LinkedList:
 
         self.데이터수 -= 1
         return 마지막값
-
+        
     def find(self, data):
         index = -1 #init노드가 맨 앞에 있기 때문
         현재노드 = self.head
@@ -82,3 +93,5 @@ print(l.find(20))
 print(l.find(18))
 for i in l:
     print(i)
+l.insert(2, 10000)
+print(l)
