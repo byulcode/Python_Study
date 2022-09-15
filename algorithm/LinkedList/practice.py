@@ -17,23 +17,30 @@ class LinkedList:
         return self.데이터수
 
     def __str__(self):
-        
         현재노드 = self.head
-        현재노드 = 현재노드.next
+        현재노드 = 현재노드.next 
         s = ''
         for i in range(self.데이터수):
             s += f'{현재노드.data}, '
-            현재노드 = 현재노드.next
+            현재노드 = 현재노드.next #순회
 
         return f'[{s[:-2]}]'
+    
+    def __iter__(self): #for문으로 노드를 출력할 수 있게 해줌
+        현재노드 = self.head
+        현재노드 = 현재노드.next
 
-    def append(self, data):
+        while 현재노드:
+            yield 현재노드.data
+            현재노드 = 현재노드.next
+
+    def append(self, data): #노드를 맨 뒤에 추가
         새로운노드 = Node(data)
         self.tail.next = 새로운노드
         self.tail = 새로운노드
         self.데이터수 += 1
 
-    def pop(self):
+    def pop(self): 
         마지막값 = self.tail.data
         현재노드 = self.head
 
@@ -72,3 +79,6 @@ print(l)
 print(l.pop())
 print(l)
 print(l.find(20))
+print(l.find(18))
+for i in l:
+    print(i)
