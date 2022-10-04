@@ -3,10 +3,8 @@ from sys import stdin
 from collections import deque
 
 N = int(stdin.readline())
-q = deque([])
 
-for i in range(N):
-    q.append(i + 1)
+q = deque([i for i in range(1, N+1)])
 
 while len(q) != 1:
     q.popleft()
