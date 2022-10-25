@@ -24,18 +24,19 @@ def bfs(x, y):
     return each_cnt
 
 
-N, M = map(int, stdin.readline().rstrip().split())
-graph = [list(map(int, stdin.readline().rstrip().split())) for _ in range(N)]
+N, M = map(int, stdin.readline().split())
+graph = [list(map(int, stdin.readline().split())) for _ in range(N)]
 visited = [[False] * M for _ in range(N)]
-paint = []  # 그림의 개수 및 크기 저장
 
 dx = [1, 0, -1, 0]
 dy = [0, 1, 0, -1]
 
+cnt, max_each_count = 0, 0
 for i in range(N):
     for j in range(M):
         if graph[i][j] == 1 and not visited[i][j]:
-            paint.append(bfs(i, j))
+            cnt += 1
+            max_each_count = max(max_each_count, bfs(i, j))
 
-print(len(paint))
-print(max(paint))
+print(cnt)
+print(max_each_count)
